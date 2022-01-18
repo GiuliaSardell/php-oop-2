@@ -30,7 +30,7 @@ $new_premiumUser->setAge(40);
 $new_premiumUser->setMail("gino@gmail.com");
 $new_premiumUser->setCard(10987654321);
 
-var_dump($new_premiumUser);
+// var_dump($new_premiumUser);
 
 
 //PRODUCT ISTANZA 
@@ -38,14 +38,23 @@ var_dump($new_premiumUser);
 
 $new_product_book = new Product("Libro", 9.99);
 $new_product_frame = new Product("Cornice", 14.99);
+
+$new_product_frame->setPriceDiscount($new_premiumUser->getDiscountPremiumUser());
+
+var_dump($new_product_frame);
+
+
+
+
+
 $new_user->addFavorites($new_product_book);
 
 var_dump($new_user);
 
 
 
-var_dump($new_product_book);
-var_dump($new_product_frame);
+// var_dump($new_product_book);
+// var_dump($new_product_frame);
 
 
 ?>
@@ -69,11 +78,21 @@ var_dump($new_product_frame);
 <p>Mail: <?php echo $new_user->getMail() ?></p>
 <p>Card: <?php echo $new_user->getCard() ?></p>
 
+<br>
+
+<p>Nome: <?php echo $new_premiumUser->getName() ?></p>
+<p>Cognome: <?php echo $new_premiumUser->getLastname() ?></p>
+<p>Età: <?php echo $new_premiumUser->getAge() ?></p>
+<p>Mail: <?php echo $new_premiumUser->getMail() ?></p>
+<p>Card: <?php echo $new_premiumUser->getCard() ?></p>
+<p>Sconto: <?php echo $new_premiumUser->getDiscountPremiumUser() ?></p>
+
 
 <h2>Prodotti</h2>
 
 <p>Nome: <?php echo $new_product_book->getName() ?></p>
 <p>Prezzo: <?php echo $new_product_book->getPrice() ?></p>
+
 
 <br>
 

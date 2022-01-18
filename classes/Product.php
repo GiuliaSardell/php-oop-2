@@ -30,7 +30,18 @@ class Product {
   }
 
 
+
+
+  public function setPriceDiscount($_priceDiscount){
+    $this->name = $_priceDiscount;
+  }
+
+  public function getPriceDiscount(){
+    return $this->priceDiscount;
+  }
+
   
+
 
 }
 ?>

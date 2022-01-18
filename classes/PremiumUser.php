@@ -19,6 +19,7 @@ class PremiumUser extends User {
   }
 
   public function getDiscountPremiumUser(){
+    
     return $this->discount;
   }
 

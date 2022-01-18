@@ -2,7 +2,7 @@
 Strutturare le classi gestendo l’ereditarietà dove necessario; ad esempio ci potrebbero essere degli utenti premium che hanno diritto a degli sconti esclusivi, oppure diverse tipologie di prodotti.
 Provate a far interagire tra di loro gli oggetti: ad esempio, l’utente dello shop inserisce una carta di credito...
 $c = new CreditCard;
-$user->insertCreditCard/$c/;
+$user->insertCreditCard($c);
 BONUS:
 Gestite eventuali eccezioni che si possono verificare es: carta di credito scaduta. -->
 
@@ -10,15 +10,20 @@ Gestite eventuali eccezioni che si possono verificare es: carta di credito scadu
 <?php
 require_once __DIR__ . "/classes/User.php";
 require_once __DIR__ . "/classes/PremiumUser.php";
+require_once __DIR__ . "/classes/Product.php";
 
 
+//USER ISTANZA
 $new_user = new User("Giulia", "Sardelli");
+
 $new_user->setAge(25);
 $new_user->setMail("giuliasardelli@gmail.com");
 $new_user->setCard(12345678910);
 
 var_dump($new_user);
 
+
+// PREMIUM USER ISTANZA
 $new_premiumUser = new PremiumUser("Gino", "Gini", 50);
 
 $new_premiumUser->setAge(40);
@@ -26,6 +31,23 @@ $new_premiumUser->setMail("gino@gmail.com");
 $new_premiumUser->setCard(10987654321);
 
 var_dump($new_premiumUser);
+
+
+//PRODUCT ISTANZA 
+
+
+$new_product_book = new Product("Libro", 9.99);
+$new_product_frame = new Product("Cornice", 14.99);
+$new_user->addFavorites($new_product_book);
+
+var_dump($new_user);
+
+
+
+var_dump($new_product_book);
+var_dump($new_product_frame);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +68,17 @@ var_dump($new_premiumUser);
 <p>Età: <?php echo $new_user->getAge() ?></p>
 <p>Mail: <?php echo $new_user->getMail() ?></p>
 <p>Card: <?php echo $new_user->getCard() ?></p>
+
+
+<h2>Prodotti</h2>
+
+<p>Nome: <?php echo $new_product_book->getName() ?></p>
+<p>Prezzo: <?php echo $new_product_book->getPrice() ?></p>
+
+<br>
+
+<p>Nome: <?php echo $new_product_frame->getName() ?></p>
+<p>Prezzo: <?php echo $new_product_frame->getPrice() ?></p>
 
 
   

@@ -6,6 +6,7 @@ class User {
   private $age;
   private $mail;
   private $card;
+  private $listProduct = [];
 
 
   public function __construct($_name,$_lastname)
@@ -59,5 +60,14 @@ class User {
   }
 
 
+  public function addFavorites($add)
+  {
+    array_push($this->listProduct,$add);
+  }
+
+  
+
+  
 }
 
+?>

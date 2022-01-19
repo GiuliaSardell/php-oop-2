@@ -10,7 +10,7 @@ class PremiumUser extends User {
 
   public function __construct($_name, $_lastname, $_discount)
   {
-    parent::__construct($_name, $_lastname);
+    parent::__construct($_name, $_lastname, $_discount);
     $this->discount = $_discount;
   }
 

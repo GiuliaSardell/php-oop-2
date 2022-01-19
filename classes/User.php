@@ -37,6 +37,10 @@ class User {
     $this->card = $_card;
   }
 
+  // public function setDiscount($_discount){
+  //   $this->discount = $_discount;
+  // }
+
 
   // funzioni GET
   public function getName(){
@@ -58,6 +62,10 @@ class User {
   public function getCard(){
     return $this->card;
   }
+
+  // public function getDiscount(){
+  //   return $this->discount;
+  // }
 
 
   public function addFavorites($add)

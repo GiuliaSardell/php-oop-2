@@ -23,6 +23,8 @@ $new_user->setCard(12345678910);
 var_dump($new_user);
 
 
+
+
 // PREMIUM USER ISTANZA
 $new_premiumUser = new PremiumUser("Gino", "Gini", 50);
 
@@ -30,26 +32,29 @@ $new_premiumUser->setAge(40);
 $new_premiumUser->setMail("gino@gmail.com");
 $new_premiumUser->setCard(10987654321);
 
-// var_dump($new_premiumUser);
+var_dump($new_premiumUser);
+
+
 
 
 //PRODUCT ISTANZA 
-
 
 $new_product_book = new Product("Libro", 9.99);
 $new_product_frame = new Product("Cornice", 14.99);
 
 $new_product_frame->setPriceDiscount($new_premiumUser->getDiscountPremiumUser());
 
-var_dump($new_product_frame);
+
+$new_product_book->setPriceDiscount($new_premiumUser->getDiscountPremiumUser());
 
 
 
 
 
-$new_user->addFavorites($new_product_book);
 
-var_dump($new_user);
+$new_premiumUser->addFavorites($new_product_book);
+
+var_dump($new_premiumUser);
 
 
 

@@ -1,11 +1,16 @@
 <?php
 
+require_once __DIR__ . "/DataCard.php";
+
 class User {
+
+  use DataCard;
+
   private $name;
   private $lastname;
   private $age;
   private $mail;
-  private $card;
+  // private $card;
   private $listProduct = [];
 
 
@@ -33,9 +38,9 @@ class User {
     $this->mail = $_mail;
   }
 
-  public function setCard($_card){
-    $this->card = $_card;
-  }
+  // public function setCard($_card){
+  //   $this->card = $_card;
+  // }
 
   // public function setDiscount($_discount){
   //   $this->discount = $_discount;
@@ -59,9 +64,9 @@ class User {
     return $this->mail;
   }
 
-  public function getCard(){
-    return $this->card;
-  }
+  // public function getCard(){
+  //   return $this->card;
+  // }
 
   // public function getDiscount(){
   //   return $this->discount;

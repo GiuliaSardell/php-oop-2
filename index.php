@@ -11,6 +11,7 @@ Gestite eventuali eccezioni che si possono verificare es: carta di credito scadu
 require_once __DIR__ . "/classes/User.php";
 require_once __DIR__ . "/classes/PremiumUser.php";
 require_once __DIR__ . "/classes/Product.php";
+require_once __DIR__ . "/classes/DataCard.php";
 
 
 //USER ISTANZA
@@ -18,9 +19,19 @@ $new_user = new User("Giulia", "Sardelli");
 
 $new_user->setAge(25);
 $new_user->setMail("giuliasardelli@gmail.com");
-$new_user->setCard(12345678910);
+$new_user->setNumber("121212121212");
+$new_user->setCvv("123");
+
+// $new_user->setCard(12345678910);
 
 var_dump($new_user);
+
+try{
+  $new_user->setNumber("121212121212");
+  $new_user->setCvv("123");
+} catch (Exception $e){
+  echo $e->getMessage();
+};
 
 
 
@@ -30,7 +41,8 @@ $new_premiumUser = new PremiumUser("Gino", "Gini", 50);
 
 $new_premiumUser->setAge(40);
 $new_premiumUser->setMail("gino@gmail.com");
-$new_premiumUser->setCard(10987654321);
+
+// $new_premiumUser->setCard(10987654321);
 
 var_dump($new_premiumUser);
 
@@ -51,15 +63,14 @@ $new_product_book->setPriceDiscount($new_premiumUser->getDiscountPremiumUser());
 
 
 
-
+//CLIENTE PREMIUM AGGIUNGE AI PREFERITI BOOK
 $new_premiumUser->addFavorites($new_product_book);
 
 var_dump($new_premiumUser);
 
 
 
-// var_dump($new_product_book);
-// var_dump($new_product_frame);
+
 
 
 ?>
@@ -81,7 +92,9 @@ var_dump($new_premiumUser);
 <p>Cognome: <?php echo $new_user->getLastname() ?></p>
 <p>Età: <?php echo $new_user->getAge() ?></p>
 <p>Mail: <?php echo $new_user->getMail() ?></p>
-<p>Card: <?php echo $new_user->getCard() ?></p>
+<p>Number Card: <?php echo $new_user->getNumber() ?></p>
+<p>Cvv: <?php echo $new_user->getCvv() ?></p>
+
 
 <br>
 
@@ -89,7 +102,7 @@ var_dump($new_premiumUser);
 <p>Cognome: <?php echo $new_premiumUser->getLastname() ?></p>
 <p>Età: <?php echo $new_premiumUser->getAge() ?></p>
 <p>Mail: <?php echo $new_premiumUser->getMail() ?></p>
-<p>Card: <?php echo $new_premiumUser->getCard() ?></p>
+
 <p>Sconto: <?php echo $new_premiumUser->getDiscountPremiumUser() ?></p>
 
 
